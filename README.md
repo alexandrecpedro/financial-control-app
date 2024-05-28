@@ -129,6 +129,7 @@ The following tools were used in building the project:<br><br>
         </li>
         <li>Return to root folder: cd .. </li>
         <li>Compile all references: dotnet build</li>
+      </ul>
     </li>
     <br>
     <li &nbsp;>Part 2 - Advancing the backend and frontend<br/>
