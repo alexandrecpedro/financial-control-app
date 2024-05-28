@@ -54,7 +54,6 @@ The following tools were used in building the project:<br><br>
 |                       Type                       |           Tools           |            References             |
 | :----------------------------------------------: | :-----------------------: | :-------------------------------: |
 |                       IDE                        |          VS CODE          |  https://code.visualstudio.com/     |
-|              Design Interface Tool               | FIGMA (Prototype - UX/UI) |      https://www.figma.com/                  |
 |         Programming Language (Frontend)          |           BLAZOR          |  https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor                  |
 |      Utility-first CSS Framework (Frontend)      |       TAILWIND CSS        |     https://tailwindcss.com/      |
 |    Tool for transforming CSS with JavaScript     |         POST CSS          |       https://postcss.org/                  |
@@ -96,8 +95,7 @@ The following tools were used in building the project:<br><br>
   <ol>
     <li &nbsp;>Part 1 - Backend, Minimal APIs and Entity Framework<br/>
       <ul &nbsp;>
-        <li &nbsp;>Build the project prototype: https://www.figma.com/file/G8PUN4pJqzxEzxPNd7eP5z/C%C3%A1psula-do-tempo-%E2%80%A2-Trilha-Ignite-(Community)?type=design&node-id=205-3&t=7bhiHbk0QWYK3QZT-0</li>
-        <li>Install VS Code (IDE)</li>
+        <li &nbsp;>Install VS Code (IDE)</li>
         <li>Create a new project folder: mkdir Fina</li>
         <li>Enter the project: cd Fina</li>
         <li>Create a new solution: dotnet new sln</li>
