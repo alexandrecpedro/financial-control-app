@@ -7,10 +7,10 @@
   <img width="1604" alt="Fina - Desktop" src="./project/screens/screen1.png">
 </div>
 <br>
-<!-- <div align = 'center' justify-content = 'space-around' >
-  <img width="1604" alt="Time Capsule Memories - Desktop" src="./project/screens/screen2.png">
+<div align = 'center' justify-content = 'space-around' >
+  <img width="1604" alt="Fina - Documentation" src="./project/screens/screen2.png">
 </div>
-<br> -->
+<br>
 <!-- <div align = 'center' justify-content = 'space-around' >
   <img width="1604" alt="Time Capsule Create Memory - Desktop" src="./project/screens/screen3.png">
 </div>
@@ -19,10 +19,6 @@
   <img width="1604" alt="Time Capsule Create Memory (filled) - Desktop" src="./project/screens/screen4.png">
 </div>
 <br> -->
-
-| | | | |
-| :---------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
-|   <img width="1604" alt="Splash Page - Mobile" src="./project/screens/screen5.png">    |   <img width="1604" alt="Home Page - Mobile" src="./project/screens/screen6.png">   |   <img width="1604" alt="Time Capsule Memories - Mobile" src="./project/screens/screen7.png">   |   <img width="1604" alt="Time Capsule: create new memory - Mobile" src="./project/screens/screen8.png">   |
 <br>
 
 <p></p>
@@ -58,10 +54,11 @@ The following tools were used in building the project:<br><br>
 |      Utility-first CSS Framework (Frontend)      |       TAILWIND CSS        |     https://tailwindcss.com/      |
 |    Tool for transforming CSS with JavaScript     |         POST CSS          |       https://postcss.org/                  |
 |      Graphic components (Frontend, Mobile)       |        LUCIDE-REACT       |    https://lucide.dev/                  |
+| Low-level binary code executed in web (Frontend) |        WEB ASSEMBLY       |     https://webassembly.org/      |
 |          Programming Language (Backend)          |           DOTNET          |  https://dotnet.microsoft.com/en-us/                  |
 |  Financial Infrastructure for Payment (Backend)  |           STRIPE          |        https://stripe.com/                  |
 |    API Documentation & Design Tools (Backend)    |          SWAGGER          |        https://swagger.io/                  |
-|                Database (Backend)                |          SQLITE           | https://www.sqlite.org/index.html            |
+|                Database (Backend)                |        MSSQL SERVER       | https://www.microsoft.com/en-us/sql-server/sql-server-2022            |
 |           .NET ORM (Backend, Database)           |     ENTITY FRAMEWORK      |     https://learn.microsoft.com/en-us/ef/      |
 | Open source API development ecosystem (Testing)  |          POSTMAN          |      https://www.postman.com/        |
 <br>
@@ -75,9 +72,9 @@ The following tools were used in building the project:<br><br>
   <h3>Testing</h3>
   <img width =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" />
   <br>
-  <!-- <h3>Database</h3>
-  <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" />
-  <br> -->
+  <h3>Database</h3>
+  <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" />
+  <br>
   <h3>IDE</h3>
   <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
   <br>
@@ -86,6 +83,7 @@ The following tools were used in building the project:<br><br>
   <br> -->
   <h3>Frontend</h3>
   <img width =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blazor/blazor-original.svg" />
+  <img width =' 100px ' left='80px' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wasm/wasm-original.svg" />
   <br>
 </div>
 <br/>
@@ -99,14 +97,6 @@ The following tools were used in building the project:<br><br>
         <li>Create a new project folder: mkdir Fina</li>
         <li>Enter the project: cd Fina</li>
         <li>Create a new solution: dotnet new sln</li>
-        <li &nbsp;><b>Backend Project</b>
-          <ul>
-            <li>Create a new project: dotnet new web -o Fina.Api</li>
-            <li>Add to solution: dotnet sln add ./Fina.Api</li>
-            <li>Enter project: cd Fina.Api</li>
-            <li>References Core project: dotnet add reference ../Fina.Core</li>
-          </ul>
-        </li>
         <li &nbsp;><b>Core project</b>
           <ul>
             <li>Create a new project: dotnet new classlib -o Fina.Core</li>
@@ -116,6 +106,14 @@ The following tools were used in building the project:<br><br>
             <li>Create Models, Enums, Request and Responses</li>
             <li>Use Constructors and JsonConstructor, JsonIgnore</li>
             <li>Setup the request handlers (interfaces): Handlers</li>
+          </ul>
+        </li>
+        <li &nbsp;><b>Backend project</b>
+          <ul>
+            <li>Create a new project: dotnet new web -o Fina.Api</li>
+            <li>Add to solution: dotnet sln add ./Fina.Api</li>
+            <li>Enter project: cd Fina.Api</li>
+            <li>References Core project: dotnet add reference ../Fina.Core</li>
           </ul>
         </li>
         <li &nbsp;><b>Frontend project</b>
@@ -128,25 +126,98 @@ The following tools were used in building the project:<br><br>
           </ul>
         </li>
         <li>Return to root folder: cd .. </li>
+        <li>Delete any files created from building/compiling the project: dotnet clean</li>
         <li>Compile all references: dotnet build</li>
       </ul>
     </li>
     <br>
-    <li &nbsp;>Part 2 - Advancing the backend and frontend<br/>
+    <li &nbsp;>Part 2 - Frontend, Blazor, WebAssembly and PWA<br/>
       <ul &nbsp;>
-        <li &nbsp;><b>Backend project</b>
+        <li &nbsp;><b>Core project</b>
           <ul>
-            <li>Define "Use Cases"</li>
+            <li>Common share folder: Common
+              <ol>
+                <li>DateTime converter methods</li>
+              </ol>
+            </li>
+            <li>Set url variables: Configuration.cs
+              <ol>
+                <li>Frontend project: FrontendUrl variable</li>
+                <li>Backend project: BackendUrl variable</li>
+              </ol>
+            </li>
           </ul>
         </li>
-        <li &nbsp;><b>Frontend project</b>
+        <li &nbsp;><b>Backend project</b>
           <ul>
-            <li>Set Google Fonts</li>
+            <li>Enter backend project: cd Fina.Api</li>
+            <li>Add Entity Framework and SQL Server:
+              dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+            </li>
+            <!-- Automatically generates DB (no need create table, drop, etc) -->
+            <li>Add Design: dotnet add package Microsoft.EntityFrameworkCore.Design</li>
+            <!-- To install EF tools: dotnet tool install ef-tools -->
+            <!-- To update EF tools: dotnet tool update --global dotnet-ef -->
+            <li>Add documentation packages:
+              <ol>
+                <li>OpenAPI: dotnet add package Microsoft.AspNetCore.OpenApi</li>
+                <li>Swashbuckle (Swagger): dotnet add package Swashbuckle.AspNetCore</li>
+              </ol>
+            </li>
+            <li>Data access
+              <ol>Data folder and files
+                <li>Mappings: CategoryMapping, TransactionMapping</li>
+                <li>Data Context (DB configurations): AppDbContext</li>
+              </ol>
+            </li>
+            <li>Migrations
+              <ol>
+                <li>Generate: dotnet ef migrations add v1</li>
+                <li>Apply to DB: dotnet ef database update</li>
+              </ol>
+            </li>
+            <li>Handlers (Business Logic): CategoryHandler, TransactionHandler</li>
+            <li>API settings: ApiConfiguration</li>
+            <li>Common folder and files : Common.Api
+              <ol>
+                <li>Interface: IEndpoint</li>
+                <li>Extension methods
+                  <ul>
+                    <li>AppExtension</li>
+                    <li>BuildExtension</li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <li>Endpoints folder and files
+              <ol>
+                <li>Categories
+                  <ul>
+                    <li>Create category: CreateCategoryEndpoint</li>
+                    <li>Delete category: DeleteCategoryEndpoint</li>
+                    <li>Get category by id: GetCategoryByIdEndpoint</li>
+                    <li>Get all categories: GetAllCategoriesEndpoint</li>
+                    <li>Update category: UpdateCategoryEndpoint</li>
+                  </ul>
+                </li>
+                <li>Transactions
+                  <ul>
+                    <li>Create transaction: CreateTransactionEndpoint</li>
+                    <li>Delete transaction: DeleteTransactionEndpoint</li>
+                    <li>Get transaction by id: GetTransactionByIdEndpoint</li>
+                    <li>Get transactions by period: GetTransactionsByPeriodEndpoint</li>
+                    <li>Update transaction: UpdateTransactionEndpoint</li>
+                  </ul>
+                </li>
+              </ol>
+              <li>Endpoint configurations: Endpoint.cs</li>
+            </li>
+            <li>Apply Dependency Injection: Program.cs</li>
           </ul>
         </li>
       </ul>
     <br>
-    <li &nbsp;>Part 3 - Integrating UI with libraries<br/>
+    <li &nbsp;>Part 3 - Componentisation, MudBlazor, Publishing<br/>
       <ul &nbsp;> 
         <li &nbsp;><b>Backend project</b>
           <ul>
@@ -161,7 +232,7 @@ The following tools were used in building the project:<br><br>
             <li>Set components</li>
           </ul>
         </li>
-        <li &nbsp;><b>Mobile project</b>
+        <li &nbsp;><b>Core project</b>
           <ul>
             <li>Install Expo-Auth-Session / Expo Crypto: npx expo install expo-auth-session expo-crypto</li>
             <li>Set Github OAuth (Expo)</li>
@@ -173,40 +244,6 @@ The following tools were used in building the project:<br><br>
           </ul>
         </li>
       </ul>
-    </li>
-    <br>
-    <li &nbsp;>Part 4 - Integrating web and mobile projects<br/>
-      <ul &nbsp;>
-        <li &nbsp;><b>Frontend project</b>
-          <ul>
-            <li>New memory page: ./src/app/memories/new/page.tsx</li>
-            <li>Auth middleware: ./src/middleware.ts</li>
-            <li>Tailwind forms: npm i -D @tailwindcss/forms</li>
-          </ul>
-        </li>
-        <li &nbsp;><b>Mobile project</b>
-          <ul>
-            <li>Starting the server</li>
-          </ul>
-        </li>
-      </ul> 
-    </li> 
-    <br>
-    <li &nbsp;>Part 5 - The next level<br/>
-      <ul &nbsp;>
-        <li &nbsp;><b>Frontend project</b>
-          <ul>
-            <li>List layout</li>
-            <li>Search memories from API</li>
-          </ul>
-        </li>
-        <li &nbsp;><b>Mobile project</b>
-          <ul>
-            <li>Create new memory: ./app/new.tsx</li>
-            <li>Logout button</li>
-          </ul>
-        </li>
-      </ul> 
     </li>
     <br>
   </ol>
@@ -248,6 +285,7 @@ The following tools were used in building the project:<br><br>
             <li &nbsp;>Run
               <ul>
                 <li>dotnet run</li>
+                <li>Open in Browser: http://localhost:5259/swagger/index.html</li>
               </ul>
             </li>
           </ol>

@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Fina.Core.Response;
+namespace Fina.Core.Responses;
 
 public class Response<TData>
 {
