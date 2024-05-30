@@ -1,0 +1,30 @@
+@page "/categories/add"
+@inherits CreateCategoryPage
+
+<MudText Typo="Typo.h3">New Category</MudText>
+
+@* CSS:
+- pa = padding-all
+- mt = margin-top
+*@
+<MudPaper Class="pa-8 mt-4">
+  <EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
+    @* Apply all validations to the form *@
+    <DataAnnotationsValidator />
+
+    <MudTextField Label="Title" HelperText="Mandatory field" @bind-Value="InputModel.Title"
+      For="@(() => InputModel.Title)" />
+
+    <MudTextField Label="Description" Lines="5" HelperText="Mandatory field" @bind-Value="InputModel.Description"
+      For="@(() => InputModel.Description)" />
+
+    @if (IsBusy)
+    {
+      <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+    }
+    else
+    {
+      <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Save</MudButton>
+    }
+  </EditForm>
+</MudPaper>

@@ -8,17 +8,13 @@
 </div>
 <br>
 <div align = 'center' justify-content = 'space-around' >
-  <img width="1604" alt="Fina - Documentation" src="./project/screens/screen2.png">
+  <img width="1604" alt="Fina - Registration" src="./project/screens/screen2.png">
 </div>
 <br>
-<!-- <div align = 'center' justify-content = 'space-around' >
-  <img width="1604" alt="Time Capsule Create Memory - Desktop" src="./project/screens/screen3.png">
+<div align = 'center' justify-content = 'space-around' >
+  <img width="1604" alt="Fina - Documentation" src="./project/screens/screen3.png">
 </div>
-<br> -->
-<!-- <div align = 'center' justify-content = 'space-around' >
-  <img width="1604" alt="Time Capsule Create Memory (filled) - Desktop" src="./project/screens/screen4.png">
-</div>
-<br> -->
+<br>
 <br>
 
 <p></p>
@@ -51,15 +47,13 @@ The following tools were used in building the project:<br><br>
 | :----------------------------------------------: | :-----------------------: | :-------------------------------: |
 |                       IDE                        |          VS CODE          |  https://code.visualstudio.com/     |
 |         Programming Language (Frontend)          |           BLAZOR          |  https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor                  |
-|      Utility-first CSS Framework (Frontend)      |       TAILWIND CSS        |     https://tailwindcss.com/      |
-|    Tool for transforming CSS with JavaScript     |         POST CSS          |       https://postcss.org/                  |
-|      Graphic components (Frontend, Mobile)       |        LUCIDE-REACT       |    https://lucide.dev/                  |
+|             Browser fonts (Frontend)             |        GOOGLE FONTS       |       https://fonts.google.com/                  |
+|           Graphic components (Frontend)          |         MUDBLAZOR         |    https://mudblazor.com/                  |
 | Low-level binary code executed in web (Frontend) |        WEB ASSEMBLY       |     https://webassembly.org/      |
 |          Programming Language (Backend)          |           DOTNET          |  https://dotnet.microsoft.com/en-us/                  |
-|  Financial Infrastructure for Payment (Backend)  |           STRIPE          |        https://stripe.com/                  |
-|    API Documentation & Design Tools (Backend)    |          SWAGGER          |        https://swagger.io/                  |
 |                Database (Backend)                |        MSSQL SERVER       | https://www.microsoft.com/en-us/sql-server/sql-server-2022            |
-|           .NET ORM (Backend, Database)           |     ENTITY FRAMEWORK      |     https://learn.microsoft.com/en-us/ef/      |
+|          DotNET ORM (Backend, Database)          |     ENTITY FRAMEWORK      |     https://learn.microsoft.com/en-us/ef/      |
+|    API Documentation & Design Tools (Backend)    |          SWAGGER          |        https://swagger.io/                  |
 | Open source API development ecosystem (Testing)  |          POSTMAN          |      https://www.postman.com/        |
 <br>
 
@@ -78,9 +72,6 @@ The following tools were used in building the project:<br><br>
   <h3>IDE</h3>
   <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
   <br>
-  <!-- <h3>UX/UI</h3>
-  <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />
-  <br> -->
   <h3>Frontend</h3>
   <img width =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blazor/blazor-original.svg" />
   <img width =' 100px ' left='80px' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wasm/wasm-original.svg" />
@@ -209,10 +200,16 @@ The following tools were used in building the project:<br><br>
                     <li>Update transaction: UpdateTransactionEndpoint</li>
                   </ul>
                 </li>
+                <li>Endpoint configurations: Endpoint.cs</li>
               </ol>
-              <li>Endpoint configurations: Endpoint.cs</li>
             </li>
             <li>Apply Dependency Injection: Program.cs</li>
+          </ul>
+        </li>
+        <li &nbsp;><b>Testing</b>
+          <ul>
+            <li>Test backend at SWAGGER: http://localhost:5259/swagger/index.html</li>
+            <li>Test backend at Postman</li>
           </ul>
         </li>
       </ul>
@@ -221,26 +218,129 @@ The following tools were used in building the project:<br><br>
       <ul &nbsp;> 
         <li &nbsp;><b>Backend project</b>
           <ul>
-            <li>Environment variables</li>
-            <li>Axios: npm i axios</li>
-            <li>JWT: npm i @fastify/jwt</li>
-          </ul>
-        </li>
-        <li &nbsp;><b>Frontend project</b>
-          <ul>
-            <li>Authentication:</li>
-            <li>Set components</li>
+            <li>Set urls: appsettings.json
+              <ol>
+                <li>BackendUrl: http://localhost:5259</li>
+                <li>FrontendUrl: http://localhost:5278</li>
+              </ol>
+            </li>
           </ul>
         </li>
         <li &nbsp;><b>Core project</b>
           <ul>
-            <li>Install Expo-Auth-Session / Expo Crypto: npx expo install expo-auth-session expo-crypto</li>
-            <li>Set Github OAuth (Expo)</li>
+            <li>Set urls: Configuration.cs
+              <ol>
+                <li>BackendUrl: http://localhost:5259</li>
+                <li>FrontendUrl: http://localhost:5278</li>
+              </ol>
+            </li>
           </ul>
         </li>
-        <li &nbsp;><b>Testing</b>
+        <li &nbsp;><b>Frontend project</b>
           <ul>
-            <li>Test backend at Hoppscotch: https://hoppscotch.io/</li>
+            <li>Add packages
+              <ol>
+                <li>HTTP: dotnet add package Microsoft.Extensions.Http</li>
+                <li>MudBlazor: dotnet add package MudBlazor</li>
+              </ol>
+            </li>
+            <li>Modify initial structure
+              <ol>
+                <li>Remove some files from:
+                  <ul>
+                    <li>Layout</li>
+                    <li>Pages</li>
+                    <li>wwwroot</li>
+                  </ul>
+                </li>
+                <li>Adapt Layout
+                  <ul>
+                    <li>Name: Layout -> Layouts</li>
+                    <li>Apply MudBlazor template: MainLayout.razor</li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <li>Adapt files
+              <ol>
+                <li>_Imports.razor
+                  <ul>
+                    <li>@using Fina.Web.Layout -> @using Fina.Web.Layouts</li>
+                    <li>Add MudBlazor: @using MudBlazor</li>
+                  </ul>
+                </li>
+                <li>wwwroot/index.html
+                  <ul>
+                    <li>Title: Fina</li>
+                    <li>Remove Bootstrap reference</li>
+                    <li>Add links for Google Fonts: Raleway</li>
+                    <li>Add MudBlazor script
+                      ```html
+                      <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+                      ```
+                    </li>
+                  </ul>
+                </li>
+                <li>Program.cs
+                  <ul>
+                    <li>Add MudBlazor settings
+                      ```
+                      <!-- On top of code -->
+                      using MudBlazor.Services;
+                      <!-- Below "builder.RootComponents.Add<HeadOutlet>("head::after");" -->
+                      builder.Services.AddMudServices()
+                      ```
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <li>Web settings
+              <ol>
+                <li>WebConfiguration.cs</li>
+                <li>Program.cs
+                  <ul>
+                    <li>Add HttpClient settings
+                      ```
+                      <!-- Below "builder.Services.AddMudServices();" -->
+                      builder.Services
+                        .AddHttpClient(
+                          WebConfiguration.HttpClientName,
+                          opt =>
+                          {
+                            opt.BaseAddress = new Uri(Configuration.BackendUrl);
+                          });
+                      ```
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <li>Handlers
+              <ol>
+                <li>CategoryHandler</li>
+                <li>Program.cs
+                  <ul>
+                    <li>Add HttpCLient settings
+                      ```csharp
+                      <!-- Above "await builder.Build().RunAsync();" -->
+                      builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
+                      ```
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <li>Pages
+              <ol>
+                <li>Categories
+                  <ul>
+                    <li>Create: Create.razor && Create.razor.cs</li>
+                    <li>GetAll: GetAll.razor && GetAll.razor.cs</li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
           </ul>
         </li>
       </ul>

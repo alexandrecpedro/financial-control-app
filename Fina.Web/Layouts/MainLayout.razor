@@ -1,0 +1,18 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider IsDarkMode="true" />
+@* Dialog - modals / pop-ups on screen *@
+<MudDialogProvider />
+@* Snackbar - notifications on screen *@
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar>
+        Fina
+    </MudAppBar>
+    <MudMainContent>
+        <MudContainer>
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
